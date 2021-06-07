@@ -145,7 +145,8 @@ wykres1 <- ggplot(tabela, aes(x=instrumenty, y=liczba_wyszukan, fill=Kraj)) +
   geom_col(position = "dodge") +labs(y= "Liczba wyszukań") + 
   theme(legend.background = element_rect(fill="white",
    size=0.5, linetype="solid", 
-   colour ="black")) 
+   colour ="black")) +
+  ggtitle("Liczba postów na temat instrumentów w Niemczech i Francji")
 ggplotly(wykres1)
 
   
