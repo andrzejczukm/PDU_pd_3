@@ -284,3 +284,90 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 
+
+##Markdown
+---
+title: "Praca domowa 3"
+author: "Maja Andrzejczuk, Julia Przybytniowska"
+date: "8 06 2021"
+output: html_document
+---
+
+```{r}
+source("PDU3.R")
+
+```
+
+
+# Wstęp 
+
+tu jest wstęp
+
+```{r}
+#wczytanie danych
+Users<-read.csv("Mus/Users.xml.csv")
+Posts<-read.csv("Mus/Posts.xml.csv")
+PostsGaming <- read.csv("gaming.stackexchange.com/Posts.xml.csv")
+PostHistory <- read.csv("gaming.stackexchange.com/PostHistory.xml.csv")
+PostsBuddhism <- read.csv("buddhism.stackexchange.com/Posts.xml.csv")
+PostsIslam <- read.csv("islam.stackexchange.com/Posts.xml.csv")
+PostsJudaism <- read.csv("judaism.stackexchange.com/Posts.xml.csv")
+PostsHinduism <- read.csv("hinduism.stackexchange.com/Posts.xml.csv")
+PostsChristianity <- read.csv("christianity.stackexchange.com/Posts.xml.csv")
+```
+# Pytania
+
+##Pytanie 1
+
+```{r}
+x <- wykres(Posts, Users)
+x
+```
+
+
+
+*Skrótowy opis kodu*
+
+1. Z pliku gaming.stackexchange.com wybieramy Tabele PostHistory i Posts. 
+2. Usuwamy posty, które były zgłoszone przez użytkowników jako nieodpowiednie (z tabeli PostHistory).
+3. Łączymy tabelę powstałą w punkcie 2. z Posts.
+4. Zostawiamy tylko pytania, czyli wiersze których PostTypeId jest równe 1.
+5. Rozdzielamy posty ze wzgledu na rok publikacji oraz ze względu na dotyczący ich temat (Xbox/PlayStation).
+6. Sumujemy liczbę postów w grupach.
+
+
+##Pytanie 2
+
+```{r}
+x <- wykres1(PostsGaming,PostHistory)
+x
+```
+
+
+
+
+
+*Skrótowy opis kodu*
+
+1. Z portalu music.stackexchange.com wybieramy Tabele Users i Posts
+2. Wybieramy tylko te wiersze, które mają Score>0.
+3. Liczymy sume postów i komentarzy na temat pianina, skrzypiec, gitary i bębnów w Niemczech, następnie we Francji.
+4. Tworzymy tabele z wynikami z Niemiec i Francji, a następnie robimy z niej wykres. Dodajemy tytuł i uwydatniamy legendę dodając jej czarną ramke.
+
+
+
+##Pytanie 3
+
+```{r}
+x <- wykres2(Posts, Users)
+x
+```
+
+
+
+
+
+*Skrótowy opis kodu*
+1. Wybieramy tabele Posts z 5-ciu portali o konkretnych religiach.
+2. Liczymy liczebność wyświetleń w każdym portalu, przy okazji grupując je w zależności od roku opublikowania postu.
+3. Łączymy powstałe dane w jedną tabele i tworzymy z niej wykres, dodaje jego tytuł.
